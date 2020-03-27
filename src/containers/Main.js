@@ -143,5 +143,6 @@ const useLayoutStyle = makeStyles(theme => ({
   contents: {
     marginTop: theme.mixins.toolbar.minHeight, 
     padding: theme.spacing(2), 
+    flexGrow: 1, 
   }, 
 }));
