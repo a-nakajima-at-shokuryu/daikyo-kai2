@@ -39,8 +39,11 @@ const TableDescription = ({
       <Paper
         className={classes.paper}
       >
-        <Info info={info} />
-        <Columns columns={columns} />
+        {loading ? (
+          <div>[{tablename.toUpperCase()}]テーブルの列定義を取得しています...</div>
+        ) : (
+          <Columns info={info} columns={columns} />
+        )}
       </Paper>
     </React.Fragment>
   )
@@ -48,19 +51,13 @@ const TableDescription = ({
 
 export default TableDescription;
 
-const Info = ({
-  info, 
-}) => {
-  return (
-    <pre>{JSON.stringify(info, null, 2)}</pre>
-  );
-};
-
 const Columns = ({
+  info, 
   columns, 
 }) => {
   return (
     <MUIDataTables
+      title={`${info.id} ${info.title}`}
       columns={[
         'no', 
         'title', 
