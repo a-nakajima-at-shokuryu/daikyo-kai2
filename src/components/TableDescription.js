@@ -4,8 +4,8 @@ import { useQuery } from '@apollo/react-hooks';
 import { Paper, makeStyles } from '@material-ui/core';
 
 const QUERY = gql`
-  query {
-    describe(tablename: "kaikaktrn") {
+  query ($tablename: String!) {
+    describe(tablename: $tablename) {
       info {
         id 
         name 
@@ -28,7 +28,9 @@ const QUERY = gql`
 const TableDescription = ({
   tablename, 
 }) => {
-  const { loading, error, data } = useQuery(QUERY);
+  const { loading, error, data } = useQuery(QUERY, {
+    variables: { tablename }, 
+  });
   const { describe: { info, columns } } = data || { describe: {} };
   const classes = useStyles();
   return (
