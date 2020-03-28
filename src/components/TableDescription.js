@@ -74,7 +74,9 @@ const Columns = ({
       data={columns}
       options={{
         responsive: 'scroll', 
-        rowsPerPage: 100, 
+        filterType: 'multiselect', 
+        selectableRows: 'single', 
+        selectableRowsOnClick: true, 
       }}
     />
   );
