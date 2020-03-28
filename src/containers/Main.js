@@ -32,16 +32,16 @@ const Main = () => {
 
   const sideMenuLinks = [
     {
-      name: 'tables', 
-      title: 'テーブル定義書', 
-      icon: <GridOffIcon />, 
-      to: `${match.url}/tables`
-    }, 
-    {
       name: 'sales', 
       title: '売上伝票入力', 
       icon: <GridOnIcon />, 
       to: `${match.url}/sales`
+    }, 
+    {
+      name: 'tables', 
+      title: 'テーブル定義書', 
+      icon: <GridOffIcon />, 
+      to: `${match.url}/tables`
     }, 
   ];
 
@@ -62,9 +62,9 @@ const Main = () => {
           {...sideLayout}
         />
         <Contents {...contentsLayout}>
-          <Route exact path={`${match.url}/`} component={Tables} />
-          <Route path={`${match.url}/tables`} component={Tables} />
+          <Route exact path={`${match.url}/`} component={Sales} />
           <Route path={`${match.url}/sales`} component={Sales} />
+          <Route path={`${match.url}/tables`} component={Tables} />
         </Contents>
       </div>
     </ThemeProvider>
