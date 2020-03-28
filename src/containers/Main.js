@@ -9,7 +9,7 @@ import MainBar from '../components/MainBar';
 import SideMenu from '../components/SideMenu';
 import Tables from '../components/Tables';
 import Sales from '../components/Sales';
-
+import ThemeProvider from '../components/ThemeProvider'; 
 
 
 const Main = () => {
@@ -48,23 +48,25 @@ const Main = () => {
   const [topLayout, sideLayout, contentsLayout] = useLayout();
 
   return (
-    <div style={{
-      display: 'flex', 
-    }}>
-      <MainBar 
-        title="株式会社ショクリュー" 
-        links={mainBarLinks} 
-        {...topLayout}
-      />
-      <SideMenu 
-        links={sideMenuLinks} 
-        {...sideLayout}
-      />
-      <Contents {...contentsLayout}>
-        <Route path={`${match.url}/tables`} component={Tables} />
-        <Route path={`${match.url}/sales`} component={Sales} />
-      </Contents>
-    </div>
+    <ThemeProvider>
+      <div style={{
+        display: 'flex', 
+      }}>
+        <MainBar 
+          title="株式会社ショクリュー" 
+          links={mainBarLinks} 
+          {...topLayout}
+        />
+        <SideMenu 
+          links={sideMenuLinks} 
+          {...sideLayout}
+        />
+        <Contents {...contentsLayout}>
+          <Route path={`${match.url}/tables`} component={Tables} />
+          <Route path={`${match.url}/sales`} component={Sales} />
+        </Contents>
+      </div>
+    </ThemeProvider>
   )
 }
 

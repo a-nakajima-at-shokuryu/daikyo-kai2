@@ -8,7 +8,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Link from '@material-ui/core/Link'; 
 import MenuIcon from '@material-ui/icons/Menu';
 import { useRouteMatch } from 'react-router-dom'; 
-import ThemeProvider from './ThemeProvider';
 import clsx from 'clsx'; 
 import { switchRouterLinkProps } from '../utils/common'
 
@@ -23,39 +22,37 @@ const Mainbar = ({
   const classes = useStyles();
 
   return (
-    <ThemeProvider>
-      <AppBar 
-        position="fixed" 
-        className={clsx(classes.root, className)}
-        {...other}
-      >
-        <Toolbar>
-          <IconButton color="inherit" edge="start" onClick={menuClick}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6">
-            <Link 
+    <AppBar 
+      position="fixed" 
+      className={clsx(classes.root, className)}
+      {...other}
+    >
+      <Toolbar>
+        <IconButton color="inherit" edge="start" onClick={menuClick}>
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6">
+          <Link 
+            color="inherit"
+            underline="none"
+            {...switchRouterLinkProps(`${match.url}/`)} 
+          >
+            {title}
+          </Link>
+        </Typography>
+        <div className={classes.grow} />
+        {links.map(({ name, title, icon, to }) => (
+          <Tooltip key={name} title={title}>
+            <IconButton 
               color="inherit"
-              underline="none"
-              {...switchRouterLinkProps(`${match.url}/`)} 
+              {...switchRouterLinkProps(to)}
             >
-              {title}
-            </Link>
-          </Typography>
-          <div className={classes.grow} />
-          {links.map(({ name, title, icon, to }) => (
-            <Tooltip key={name} title={title}>
-              <IconButton 
-                color="inherit"
-                {...switchRouterLinkProps(to)}
-              >
-                {icon}
-              </IconButton>
-            </Tooltip>
-          ))}
-        </Toolbar>
-      </AppBar>
-    </ThemeProvider>
+              {icon}
+            </IconButton>
+          </Tooltip>
+        ))}
+      </Toolbar>
+    </AppBar>
   )
 }
 
