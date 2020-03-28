@@ -62,7 +62,7 @@ const Main = () => {
           {...sideLayout}
         />
         <Contents {...contentsLayout}>
-          <Route exact path={`${match.url}/`} component={Tables} />
+          <Route exact path={`${match.url}/`} component={Sales} />
           <Route path={`${match.url}/sales`} component={Sales} />
           <Route path={`${match.url}/tables`} component={Tables} />
         </Contents>
