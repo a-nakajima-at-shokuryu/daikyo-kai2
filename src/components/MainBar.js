@@ -35,7 +35,7 @@ const Mainbar = ({
           <Link 
             color="inherit"
             underline="none"
-            {...switchRouterLinkProps(`${match.url}/`)} 
+            {...switchRouterLinkProps(`${match.url}`)} 
           >
             {title}
           </Link>

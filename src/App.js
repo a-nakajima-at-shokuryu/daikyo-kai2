@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Router>
       <Route exact path="/" render={() => <Logo to="/main"/>} />
-      <Route path="/main/" component={Main} />
+      <Route path="/main" component={Main} />
     </Router>
   )
 }
