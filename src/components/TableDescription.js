@@ -70,7 +70,7 @@ const Columns = ({
       ]}
       data={columns}
       options={{
-        responsive: 'scroll', 
+        responsive: 'scrollFullHeight', 
         filterType: 'multiselect', 
         selectableRows: 'single', 
         selectableRowsOnClick: true, 

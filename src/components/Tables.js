@@ -80,12 +80,13 @@ const TablesList = ({
         columns={columns}
         data={data ? data.tableList : []}
         options={{
-          responsive: 'scroll', 
+          responsive: 'scrollFullHeight', 
           filterType: 'multiselect', 
           selectableRows: 'single', 
           selectableRowsOnClick: true, 
           onRowsSelect, 
         }}
+        
       />
     </div>
   )
