@@ -2,6 +2,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import { Paper, makeStyles } from '@material-ui/core';
+import MUIDataTables from 'mui-datatables'; 
 
 const QUERY = gql`
   query ($tablename: String!) {
@@ -59,7 +60,23 @@ const Columns = ({
   columns, 
 }) => {
   return (
-    <pre>{JSON.stringify(columns, null, 2)}</pre>
+    <MUIDataTables
+      columns={[
+        'no', 
+        'title', 
+        'prefix', 
+        'name', 
+        'type', 
+        'size', 
+        'iskey', 
+        'biko', 
+      ]}
+      data={columns}
+      options={{
+        responsive: 'scroll', 
+        rowsPerPage: 100, 
+      }}
+    />
   );
 };
 
